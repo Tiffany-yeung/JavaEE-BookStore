@@ -1,0 +1,9 @@
+/.idea/
+/log.txt
+/out/
+/TerraFrame.iml
+/worlds/
+.settings
+.project
+.classpath
+target/
