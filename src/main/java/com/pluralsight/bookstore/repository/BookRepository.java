@@ -1,7 +1,10 @@
 package com.pluralsight.bookstore.repository;
 
 import com.pluralsight.bookstore.model.Book;
+import com.pluralsight.bookstore.util.NumberGenerator;
+import com.pluralsight.bookstore.util.TextUtil;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -21,6 +24,11 @@ public class BookRepository {
 	//Add the JPA Entity Manager and persistence unit
     @PersistenceContext(unitName = "bookStorePU")
     private EntityManager em;
+    
+    @Inject
+    private TextUtil textUtil;
+    @Inject
+    private NumberGenerator generator;
 
     //Business methods
     //CRUD operations
@@ -45,6 +53,8 @@ public class BookRepository {
 	//required = making transactions mandatory
     @Transactional(REQUIRED)
     public Book create(@NotNull Book book) {
+    		book.setTitle(textUtil.sanitize(book.getTitle()));
+    		book.setIsbn(generator.generateNumber());
         em.persist(book);
         return book;
     }
