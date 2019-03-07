@@ -17,6 +17,8 @@
         <version.arquillian>1.1.13.5</version.arquillian>
         <version.arquillian.wildfly>2.0.2.Final</version.arquillian.wildfly>
         <version.shrinkwrap>1.2.6</version.shrinkwrap>
+        <version.arquillian.rest>1.0.0.Alpha4</version.arquillian.rest>
+        <version.resteasy>3.1.1.Final</version.resteasy>
         <!-- Plugins -->
         <version.surefire.plugin>2.19.1</version.surefire.plugin>
     </properties>
@@ -65,12 +67,31 @@
             <version>${version.arquillian.wildfly}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.extension</groupId>
+            <artifactId>arquillian-rest-client-api</artifactId>
+            <version>${version.arquillian.rest}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.extension</groupId>
+            <artifactId>arquillian-rest-client-impl-3x</artifactId>
+            <version>${version.arquillian.rest}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson-provider</artifactId>
+            <version>${version.resteasy}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
     		<finalName>bookstore-back</finalName>
     		
         <plugins>
+        		
 	        <plugin>
 	          <groupId>org.apache.maven.plugins</groupId>
 	          <artifactId>maven-surefire-plugin</artifactId>
@@ -90,8 +111,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
