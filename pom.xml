@@ -129,8 +129,7 @@
 							<info>
 								<title>BookStore APIs</title>
 								<version>1.0.0</version>
-								<description>BookStore APIs exposed from a Java EE back-end to
-									an Angular front-end</description>
+								<description>BookStore APIs exposed from a Java EE back-end to an Angular front-end</description>
 								<contact>
 									<name>Tiffany Yeung</name>
 								</contact>
